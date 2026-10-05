@@ -16,9 +16,9 @@ Ask Claude to create a weekly scheduled task with the prompt below. First, repla
 | Placeholder | Example |
 |---|---|
 | `[YOUR_BOARD_URL]` | The link to your published Supper Board artifact |
-| `[HOUSEHOLD]` | "a household of two" |
+| `[HOUSEHOLD]` | "a household of one" |
 | `[TIME_ZONE]` | America/Chicago |
-| `[GUIDELINES]` | Your food rules: protein targets, allergies, foods you avoid, cook nights per week |
+| `[GUIDELINES]` | Your food rules: protein targets, allergies, foods you avoid, cook nights per week, and portion size (e.g. "recipes serve 2: one portion the cook night, one leftover the next night") |
 | `[ALWAYS_RESTOCK]` | Perishables to buy every order, e.g. eggs, milk, yogurt |
 
 Suggested schedule: Tuesdays around 6:50 AM local time.

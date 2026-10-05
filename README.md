@@ -1,6 +1,6 @@
 # Supper Board
 
-A shared kitchen board for a two-person household. It shows what's for dinner tonight, the two-week plan with recipes, when to thaw things, and the next grocery order. Claude writes the meal plan every two weeks from what we liked, and a shopping agent places the Walmart pickup order.
+A kitchen board for a one-person household. It shows what's for dinner tonight, the two-week plan with recipes, when to thaw things, and the next grocery order. Claude writes the meal plan every two weeks from what I liked, and a shopping agent places the Walmart pickup order.
 
 I'm not a developer. I built all of this in an afternoon by talking to Claude: the page, the automation, and the tablet setup. This repo has everything you need to build your own.
 
@@ -15,9 +15,9 @@ I'm not a developer. I built all of this in an afternoon by talking to Claude: t
 
 ## What it does
 
-**For the two of us, on our phones and a tablet on the kitchen wall:**
+**For me, on my phone and a tablet on the kitchen wall:**
 - **Tonight:** what's for dinner. Tap it for the recipe, with ingredients you can check off and a "keep screen on" button for cooking.
-- **Two-week plan:** about 3 cook nights a week, each batched so leftovers cover the next night, plus a flexible night.
+- **Two-week plan:** about 3 cook nights a week, each batched to serve 2, so a leftover portion covers the next night, plus a flexible night.
 - **Thaw reminders:** the night before a meal that uses frozen meat, the board says "Before bed: move the chicken to the fridge," with a button to mark it done.
 - **Push back a day:** when plans change, slide tonight's meal and everything after it later by 1 or 2 days, with Undo. Thaw reminders move along with the meals.
 - **Ratings and notes:** star each cook night and leave notes like "try with angel hair next time."
@@ -26,12 +26,12 @@ I'm not a developer. I built all of this in an afternoon by talking to Claude: t
 
 **On a schedule, without anyone asking:**
 - **Tuesday:** Claude reads every rating, note, request, freezer item, and staple, then drafts the next two weeks with original recipes and a grocery list. It posts the draft to the board as "ready to review."
-- **Before Thursday:** we look it over, mark anything we don't want as "Replace," and tap **Approve**.
-- **Thursday evening:** Claude swaps out the marked meals and merges the plan's groceries, our quick-adds, and Low staples into one list. It saves the list on the board and as a Google Doc.
-- **Thursday 7 PM:** our shopping agent (Meta's Muse) picks up the doc, builds the Walmart pickup order, and asks us to approve it.
+- **Before Thursday:** I look it over, mark anything I don't want as "Replace," and tap **Approve**.
+- **Thursday evening:** Claude swaps out the marked meals and merges the plan's groceries, my quick-adds, and Low staples into one list. It saves the list on the board and as a Google Doc.
+- **Thursday 7 PM:** my shopping agent (Meta's Muse) picks up the doc, builds the Walmart pickup order, and asks me to approve it.
 - **Sunday afternoon:** pickup. Week 2's proteins go straight into the freezer, and the new plan starts Monday.
 
-All we do is rate dinners and spend about two minutes reviewing the plan and the order.
+All I do is rate dinners and spend about two minutes reviewing the plan and the order.
 
 ## How it works
 
@@ -42,7 +42,7 @@ flowchart LR
     DB[("Shared database<br/>meals · draft · history · notes<br/>grocery · staples · freezer · plan")]
     UI <--> DB
   end
-  You(["Both of us"]) -->|"rate, note, add groceries,<br/>push back, approve"| UI
+  You(["Me"]) -->|"rate, note, add groceries,<br/>push back, approve"| UI
   T1["Tuesday task<br/>(Claude, cloud)"] -->|"reads feedback,<br/>writes next plan + recipes"| DB
   T2["Thursday task<br/>(Claude, cloud)"] -->|"finalizes plan,<br/>builds order list"| DB
   T2 -->|"saves list"| GD["Google Drive doc"]
@@ -60,13 +60,13 @@ There are three moving parts:
 
 | When | Who | What happens | Board status |
 |---|---|---|---|
-| Daily | Us | Cook, rate, add notes and groceries, push back if needed | `active` |
+| Daily | Me | Cook, rate, add notes and groceries, push back if needed | `active` |
 | Tue ~6:50 AM | Claude | Drafts the next 2 weeks: recipes, thaw schedule, grocery list | `drafted` |
-| Tue–Thu | Us | Review, mark meals to replace, **Approve** | `approved` |
+| Tue–Thu | Me | Review, mark meals to replace, **Approve** | `approved` |
 | Thu ~5:50 PM | Claude | Swaps marked meals, builds the final list, saves a Google Doc | `list_ready` |
-| Thu 7:00 PM | Shopping agent | Builds the Walmart pickup order and asks us to approve | |
-| Thu–Fri | Us | Approve in the agent's app, tap **I placed the order** | `ordered` |
-| Sun afternoon | Us | Pickup. Freeze week-2 proteins. | |
+| Thu 7:00 PM | Shopping agent | Builds the Walmart pickup order and asks me to approve | |
+| Thu–Fri | Me | Approve in the agent's app, tap **I placed the order** | `ordered` |
+| Sun afternoon | Me | Pickup. Freeze week-2 proteins. | |
 | Mon | Board | New plan is live | `active` |
 
 ## What's in this repo
@@ -98,10 +98,10 @@ Start with **[guides/setup.md](guides/setup.md)**. In short:
 ## Things I learned along the way
 
 - **Plan ahead, then pause for review.** Drafting Tuesday and ordering Thursday leaves time to say no to a meal before it turns into groceries.
-- **The schedule has to bend.** The most common change isn't swapping two dinners. It's "we're going out, push everything back a day." That got its own button, and the automation reads the plan's dates instead of assuming fixed ones.
-- **Make thawing part of the plan.** Meals that use frozen meat carry a `thaw` field, and the board shows the reminder the night before. It's the feature we use most.
+- **The schedule has to bend.** The most common change isn't swapping two dinners. It's "I'm going out, push everything back a day." That got its own button, and the automation reads the plan's dates instead of assuming fixed ones.
+- **Make thawing part of the plan.** Meals that use frozen meat carry a `thaw` field, and the board shows the reminder the night before. It's the feature I use most.
 - **Use a shopping agent, not browser automation.** I first had Claude drive Chrome on my laptop to fill the Walmart cart. That works, but it needs the computer on at the right time. Handing a doc to an agent that has its own browser is more reliable.
-- **Everyone needs to sign in.** The shared database only loads for signed-in people the board has been shared with. Both of us need Claude accounts, and so does the tablet.
+- **Sign in on every device.** The shared database only loads for signed-in people the board has been shared with, so the tablet needs a Claude account too, not just your phone.
 - **Mock it up first.** I tried colors and the tablet layout in Claude Design before changing the live board.
 
 ## Limitations

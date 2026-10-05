@@ -498,7 +498,7 @@ h2{font-size:1.15rem;font-weight:700}
     let h = statusHtml("today");
     const tm = mealOn(t), tomorrow = mealOn(addDays(t,1));
     if(!ms.length){
-      h += '<div class="empty">No meal plan yet. Claude adds each two-week plan here, and it shows up for both of you.</div>';
+      h += '<div class="empty">No meal plan yet. Claude adds each two-week plan here.</div>';
     } else if(!tm && t>=ms[0].date && t<=ms[ms.length-1].date){
       const nx = ms.find(m=>m.date>t);
       h += '<div class="tonight"><span class="eyebrow">Night off</span><span class="meal-title">Nothing planned tonight</span><p>'+(nx?"Next up: "+esc(nx.title)+" on "+fmt(nx.date,{weekday:"long"})+".":"")+'</p></div>';

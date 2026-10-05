@@ -14,7 +14,7 @@ I started with the Chrome approach and switched to the agent handoff because it 
 Paste this into your agent once and adjust the `[brackets]`. If the agent supports recurring tasks, it runs on its own each week. If it doesn't, the **Copy list** button on the board gives you the same list to paste by hand.
 
 ```text
-Hi [AGENT NAME], I'm changing how we handle groceries.
+Hi [AGENT NAME], I'm changing how I handle groceries.
 
 Meal planning, recipes, and dates are now handled by Claude through a shared board. You don't need to plan meals, write recipes, or choose cook nights anymore. If you have a recurring task for meal planning, please turn it off.
 
@@ -22,7 +22,7 @@ Your new job is just the [STORE] order:
 
 Set up a recurring task for every Thursday at 7:00 PM [TIME ZONE]:
 1. Look in my Google Drive folder called "Supper Board" for the newest Google Doc titled "Grocery order – Sun [date]".
-2. Only continue if that doc was created today and its date is this coming Sunday. If there's no new doc this week, do nothing. We sometimes push our plan back, so some weeks won't have an order.
+2. Only continue if that doc was created today and its date is this coming Sunday. If there's no new doc this week, do nothing. I sometimes push my plan back, so some weeks won't have an order.
 3. Build a [STORE] pickup order with exactly the items and quantities in the doc. Use my usual pickup store, and pick a Sunday afternoon pickup time, ideally between 1 and 4 PM.
 4. [SUBSTITUTION RULES]
 5. Don't place the order yet. Send me a summary first: estimated total, pickup time, any substitutions, and anything you couldn't find. Place it once I approve.

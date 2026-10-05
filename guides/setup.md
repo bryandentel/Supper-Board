@@ -27,11 +27,11 @@ Give Claude your current meal plan. Paste it, attach a PDF, or describe it. Then
 
 Point Claude at [data-model.md](data-model.md) so it writes the fields the page expects.
 
-## 3. Share it with your household
+## 3. Add it to your own devices
 
-On the board, tap **Share** and invite each person by email as an **Editor**. Leave public link sharing off. A public link makes everyone view-only, and they couldn't rate meals or add groceries.
+It's just you, so there's no one to invite. On your phone (and a kitchen tablet, if you're using one), open the board's link in the browser, sign in to Claude, and choose **Add to Home Screen**. Leave public link sharing off; a public link would make the board view-only, and you wouldn't be able to rate meals or add groceries from it.
 
-On each phone, open the link in the browser, sign in to Claude, and choose **Add to Home Screen**.
+If you ever want a second person to see or edit the board, tap **Share** and invite them by email as an **Editor**.
 
 ## 4. Turn on the weekly automation
 

@@ -20,7 +20,7 @@ This task never shops or places an order. See [3-grocery-agent-handoff.md](3-gro
 | Placeholder | Example |
 |---|---|
 | `[YOUR_BOARD_URL]` | The link to your published Supper Board artifact |
-| `[HOUSEHOLD]` | "a household of two" |
+| `[HOUSEHOLD]` | "a household of one" |
 | `[TIME_ZONE]` | America/Chicago |
 | `[STORE]` | Walmart pickup |
 | `[DRIVE_FOLDER_ID]` | The folder ID from step 1 |
