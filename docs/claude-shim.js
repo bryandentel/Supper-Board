@@ -1,5 +1,5 @@
 /*
- * Demo shim for Supper Board.
+ * Demo shim for Fed.
  *
  * The real board runs as a Claude artifact, where `window.claude.use("db")`
  * returns a shared, live database. This file fakes just enough of that API
@@ -178,7 +178,7 @@
     var style = document.createElement("style");
     document.head.appendChild(style);
     function fit() {
-      style.textContent = "@media (min-width:960px){.nav{top:calc(env(safe-area-inset-top,0px) + 44px + " + bar.offsetHeight + "px)!important}}";
+      style.textContent = "@media (min-width:960px){.nav{top:calc(env(safe-area-inset-top,0px) + 36px + " + bar.offsetHeight + "px)!important}}";
     }
     fit();
     window.addEventListener("resize", fit);

@@ -1,10 +1,12 @@
-# Supper Board
+# Fed
 
 A kitchen board for a one-person household. It shows what's for dinner tonight, the two-week plan with recipes, when to thaw things, and the next grocery order. Claude writes the meal plan every two weeks from what I liked, and a shopping agent places the Walmart pickup order.
 
-I'm not a developer. I built all of this in an afternoon by talking to Claude: the page, the automation, and the tablet setup. This repo has everything you need to build your own.
+Adapted from [weezerhunter/Supper-Board](https://github.com/weezerhunter/Supper-Board) for one person, renamed Fed, and restyled to match my Home Assistant wall dashboard. When the app opens, the cloche logo lifts its lid and lets out a little steam.
 
-**[Try the demo →](https://weezerhunter.github.io/Supper-Board/#today)**: sample data, runs in your browser, nothing to install.
+I'm not a developer. All of this was built by talking to Claude: the page, the automation, and the tablet setup. This repo has everything you need to build your own.
+
+**[Try the demo →](https://bryandentel.github.io/Supper-Board/#today)**: sample data, runs in your browser, nothing to install.
 
 <p>
   <img src="docs/screenshots/phone-tonight.png" width="230" alt="Tonight screen on a phone: tonight's meal, push-back buttons, thaw reminder, and a rating prompt">
@@ -37,7 +39,7 @@ All I do is rate dinners and spend about two minutes reviewing the plan and the 
 
 ```mermaid
 flowchart LR
-  subgraph Board["Supper Board (Claude artifact)"]
+  subgraph Board["Fed (Claude artifact)"]
     UI["Phone & tablet page"]
     DB[("Shared database<br/>meals · draft · history · notes<br/>grocery · staples · freezer · plan")]
     UI <--> DB
@@ -52,7 +54,7 @@ flowchart LR
 
 There are three moving parts:
 
-1. **The board** ([`board/supper-board.html`](board/supper-board.html)) is one HTML file published as a **Claude artifact**. Artifacts can have a small shared database (`window.claude.use("db")`) that updates live for everyone who opens the page. Claude can read and write it too. That's the whole backend: no server, no hosting, no accounts to manage beyond Claude itself.
+1. **The board** ([`board/fed.html`](board/fed.html)) is one HTML file published as a **Claude artifact**. Artifacts can have a small shared database (`window.claude.use("db")`) that updates live for everyone who opens the page. Claude can read and write it too. That's the whole backend: no server, no hosting, no accounts to manage beyond Claude itself.
 2. **Two scheduled tasks** ([`automation/`](automation/)) are prompts that Claude runs on its own every week in a fresh cloud session. They read and write the same database. Each one checks the plan's dates before doing anything, so pushing the plan back automatically pushes the cycle back too.
 3. **The grocery handoff.** Walmart has no public API for placing orders, so a shopping agent that can use Walmart's site does the last step. Claude never spends money; the agent asks before placing the order.
 
@@ -72,7 +74,7 @@ There are three moving parts:
 ## What's in this repo
 
 ```
-board/supper-board.html          The board itself (publish this as a Claude artifact)
+board/fed.html          The board itself (publish this as a Claude artifact)
 automation/
   1-plan-draft-task.md           Tuesday scheduled-task prompt (fill in the [brackets])
   2-grocery-list-task.md         Thursday scheduled-task prompt
@@ -89,7 +91,7 @@ tools/build_demo.py              Rebuilds docs/index.html from board/
 
 Start with **[guides/setup.md](guides/setup.md)**. In short:
 
-1. Attach `board/supper-board.html` to a Claude chat and ask Claude to publish it as an artifact with the `db` capability.
+1. Attach `board/fed.html` to a Claude chat and ask Claude to publish it as an artifact with the `db` capability.
 2. Give Claude your current meal plan and ask it to load the plan using [the data model](guides/data-model.md).
 3. Share the board with your household as **Editors**.
 4. Ask Claude to create the two scheduled tasks from [`automation/`](automation/).

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build docs/index.html (the standalone demo) from board/supper-board.html.
+"""Build docs/index.html (the standalone demo) from board/fed.html.
 
 The board file is written the way Claude artifacts expect: page content only,
 no <html>/<head> wrapper. This script adds a minimal document shell plus the
@@ -11,7 +11,7 @@ Usage:  python3 tools/build_demo.py
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-board = (ROOT / "board" / "supper-board.html").read_text(encoding="utf-8")
+board = (ROOT / "board" / "fed.html").read_text(encoding="utf-8")
 
 shell_head = """<!doctype html>
 <html lang="en">

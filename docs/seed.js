@@ -1,5 +1,5 @@
 /*
- * Sample data for the Supper Board demo. `day` is the offset from Monday of
+ * Sample data for the Fed demo. `day` is the offset from Monday of
  * the current week (0 = this Monday, 13 = Sunday next week), so the demo
  * always shows a plan that is "in progress". Ratings on future days are
  * dropped automatically.

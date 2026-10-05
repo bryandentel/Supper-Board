@@ -1,4 +1,4 @@
-# Set up your own Supper Board
+# Set up your own Fed board
 
 This guide walks through building your own copy. I'm not a developer, and I built all of this by talking to Claude, so the steps below are mostly things to ask Claude.
 
@@ -11,7 +11,7 @@ This guide walks through building your own copy. I'm not a developer, and I buil
 
 ## 1. Publish the board
 
-Download [`board/supper-board.html`](../board/supper-board.html), attach it to a Claude chat, and ask:
+Download [`board/fed.html`](../board/fed.html), attach it to a Claude chat, and ask:
 
 > Publish this file as an artifact exactly as it is, with the `db` capability so it has a shared database. Don't change the design.
 
@@ -23,7 +23,7 @@ The page is written as a Claude artifact. It uses `window.claude.use("db")` for 
 
 Give Claude your current meal plan. Paste it, attach a PDF, or describe it. Then ask:
 
-> Load this plan into my Supper Board. Use the data model in guides/data-model.md. Write a recipe for each cook night, mark which week-2 meals need thawing, and fill in my staples and freezer.
+> Load this plan into my Fed board. Use the data model in guides/data-model.md. Write a recipe for each cook night, mark which week-2 meals need thawing, and fill in my staples and freezer.
 
 Point Claude at [data-model.md](data-model.md) so it writes the fields the page expects.
 
@@ -49,5 +49,6 @@ Follow [3-grocery-agent-handoff.md](../automation/3-grocery-agent-handoff.md) to
 ## Customizing
 
 - **Store and agent names:** the board's text mentions Walmart and Muse in a few places, like "Copy list for Muse." Ask Claude to change these to your store and agent.
-- **Look:** the board uses a warm diner palette and is locked to light mode. Ask Claude to restyle it, or mock up options in Claude Design first.
+- **Look:** the board matches my Home Assistant wall dashboard: a charcoal background, an amber accent, Lora for titles, Oswald for numbers, and JetBrains Mono for small labels. It's dark only. Ask Claude to restyle it, or mock up options in Claude Design first.
+- **Greeting:** the Tonight screen says "Good evening, Bryan." Change `NAME` near the top of the script in `board/fed.html` to your own name, or leave it empty for just "Good evening."
 - **Rhythm:** three cook nights a week with leftovers the next night is the default. Change it in your plan guidelines and in the Tuesday prompt.
